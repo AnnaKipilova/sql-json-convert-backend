@@ -6,7 +6,10 @@ const bodyParser = require('body-parser');
 // const PORT = process.env.PORT || 3001;
 require('dotenv').config();
 
-app.use(cors()); // it has to be there always
+app.use(cors({
+    origin: 'https://sql-to-json-converter.netlify.app',
+    optionsSuccessStatus: 200
+}));
 app.use(express.json()); // this too
 app.use(bodyParser.json());
 app.use((req, res, next) => {
