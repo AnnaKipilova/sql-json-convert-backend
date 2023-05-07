@@ -10,7 +10,7 @@ app.use(cors()); // it has to be there always
 app.use(express.json()); // this too
 app.use(bodyParser.json());
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://sql-to-json-converter.netlify.app');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 });
