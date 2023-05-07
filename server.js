@@ -3,7 +3,7 @@ const app = express();
 const Pool = require('pg').Pool;
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 3001;
+// const PORT = process.env.PORT || 3001;
 require('dotenv').config();
 
 app.use(cors()); // it has to be there always
@@ -137,6 +137,6 @@ app.get("/all_data", (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log("Your server is running on port 3001");
 });
