@@ -5,6 +5,7 @@ const Pool = require('pg').Pool;
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { unescape } = require('unescape-js');
+const PORT = process.env.PORT || 3001;
 
 app.use(cors()); // it has to be there always
 app.use(express.json()); // this too
@@ -113,35 +114,6 @@ const getDataFromTable = async (tableName) => {
     return res.rows;
   };
 
-// app.get("/all_data", (req, res) => {
-//     const selectedOptions = JSON.parse(req.query.selectedOptions);
-//     console.log(selectedOptions);
-
-//     const allTableData = {};
-//     let count = 0;
-//     for (let i = 1; i < selectedOptions.length; i++) {
-//         const tableName = selectedOptions[i].value;
-//         // if (tableName != "*") {
-//         console.log(tableName);
-
-//         getDataFromTable(tableName)
-//             .then(tableData => {
-//                 allTableData[tableName] = tableData;
-//                 count++;
-
-//                 if (count === selectedOptions.length) {
-//                     res.setHeader('Content-Type', 'application/json');
-//                     res.send(JSON.stringify(allTableData));
-//                 }
-//             })
-//             .catch(error => {
-//                 console.error(`Error retrieving data from ${tableName}:`, error);
-//             });
-//         // }
-//     }
-// });
-
-
 app.get("/all_data", (req, res) => {
     const selectedOptions = JSON.parse(req.query.selectedOptions);
     console.log(selectedOptions);
@@ -166,50 +138,6 @@ app.get("/all_data", (req, res) => {
     }
 });
 
-/*
-const db = new Pool({
-    user: "kipilova",
-    host: "dbs.kpi.fei.tuke.sk",
-    password: "kipilova",
-    database: "kipilova"
-});
-*/
-// app.post("/create", (req, res) => { // http://localhost:3001/create, request, response
-//     console.log(req.body);
-//     // get info from frontend
-//     const name = req.body.name;
-//     const age = req.body.age;
-//     const country = req.body.country;
-//     const position = req.body.position;
-//     const wage = req.body.wage;
-
-//     db.query(
-//         'INSERT INTO "employees" (name, age, country, position, wage) VALUES ($1, $2, $3, $4, $5)',
-//         [name, age, country, position, wage],
-//         (err, result) => {
-//             if (err) {
-//                 console.log(err);
-//             } else {
-//                 res.send("Values inserted");
-//             }
-//         }
-//     );
-// });
-
-// app.get("/employees", (req, res) => {
-//     db.query(
-//         'SELECT * FROM employees',
-//         (err, result) => {
-//             if (err) {
-//                 console.log(err);
-//             } else {
-//                 res.setHeader('Content-Type', 'application/json');
-//                 res.send(result);
-//             }
-//         }
-//     );
-// });
-
-app.listen(3001, () => {
+app.listen(PORT, () => {
     console.log("Your server is running on port 3001");
 });
