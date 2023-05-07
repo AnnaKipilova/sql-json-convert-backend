@@ -4,6 +4,7 @@ const Pool = require('pg').Pool;
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3001;
+require('dotenv').config();
 
 app.use(cors()); // it has to be there always
 app.use(express.json()); // this too
