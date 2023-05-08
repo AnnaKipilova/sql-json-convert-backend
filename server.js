@@ -6,13 +6,14 @@ const bodyParser = require('body-parser');
 // const PORT = process.env.PORT || 3001;
 require('dotenv').config();
 
-app.use(cors({
-    origin: 'https://sql-to-json-converter-frontend.onrender.com',
-    optionsSuccessStatus: 200,
-    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-}));
+// app.use(cors({
+//     origin: 'https://sql-to-json-converter-frontend.onrender.com',
+//     optionsSuccessStatus: 200,
+//     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//     credentials: true,
+// }));
+app.use(cors());
 app.use(express.json()); // this too
 app.use(bodyParser.json());
 // app.use(function(req, res, next) {
