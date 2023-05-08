@@ -8,7 +8,10 @@ require('dotenv').config();
 
 app.use(cors({
     origin: 'https://sql-to-json-converter.netlify.app',
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
+    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
 }));
 app.use(express.json()); // this too
 app.use(bodyParser.json());
