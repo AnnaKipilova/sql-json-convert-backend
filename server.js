@@ -6,22 +6,22 @@ const bodyParser = require('body-parser');
 // const PORT = process.env.PORT || 3001;
 require('dotenv').config();
 
-app.use(cors({
-    origin: 'https://sql-to-json-converter.netlify.app/',
-    optionsSuccessStatus: 200,
-    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-}));
+// app.use(cors({
+//     origin: 'https://sql-to-json-converter.netlify.app/',
+//     optionsSuccessStatus: 200,
+//     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//     credentials: true,
+// }));
 app.use(express.json()); // this too
 app.use(bodyParser.json());
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://sql-to-json-converter.netlify.app/');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
+// app.use(function(req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', 'https://sql-to-json-converter.netlify.app/');
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+//     res.setHeader('Access-Control-Allow-Credentials', true);
+//     next();
+// });
 
 let db;
 
