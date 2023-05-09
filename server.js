@@ -97,7 +97,8 @@ app.post("/connect", async (req, res) => { // http://localhost:3001/connect, req
             host: req.body.host,
             user: req.body.user,
             password: req.body.password,
-            database: req.body.database
+            database: req.body.database,
+            host: 5433
         });
         await db.connect();
 
